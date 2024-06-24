@@ -7,7 +7,10 @@ body {
 
 
 #warning {
-  display: none;
+  background-color: #bfa084;
+  height:30px;
+  padding:10px;
+  color:white;
 }
 
 #success{
@@ -214,7 +217,7 @@ main {
 }
 
 .whyus__second__box--one {
-  background-image: url("/assets/jar.png");
+  background-image: url("https://github.com/WindiAlAzmi/landingpage-simple/blob/main/assets/jar.png?raw=true");
   background-repeat: no-repeat;
   width: 22%;
   height: 340px;
@@ -291,7 +294,7 @@ main {
   margin-right: 20rem;
 }
 
-.about__us--second h3 {
+.about__us--second p {
   font-size: 20px;
   color: #181717;
   text-align: center;
@@ -401,13 +404,11 @@ main {
   text-align: center;
 }
 
-.contact__form {
-  width: 100%;
-}
 
-.contact__form form {
+form {
   padding: 20px 20px;
-  width: 50%;
+  /* width: 50%; */
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -422,7 +423,7 @@ main {
   width: 100%;
 }
 
-.contact__form--card input {
+ input {
   outline: none;
   padding: 10px;
   border-radius: 20px;
@@ -458,7 +459,7 @@ main {
   
 }
 
-.contact__button button {
+button {
   border-radius: 40px;
   height: 60px;
   cursor: pointer;
@@ -470,7 +471,6 @@ main {
 }
 
 .contact__alert {
-  background-color: #e02424;
   margin: 0 20px;
   height: 100px;
   width: 50%;
@@ -530,7 +530,7 @@ footer {
   overflow: hidden;
 }
 @media (max-width: 1280px) {
-  .contact__form form {
+   form {
     padding: 20px 20px;
     width: 80%;
     margin: 0 auto;
@@ -553,7 +553,7 @@ footer {
   }
 
   .about__us--first h3,
-  .about__us--second h3 {
+  .about__us--second p {
     font-size: 20px;
   }
 
@@ -589,7 +589,7 @@ footer {
 }
 
 @media (max-width: 1028px) {
-  .contact__form form {
+   form {
     width: 100%;
   }
 
@@ -606,7 +606,7 @@ footer {
   }
 
   .about__us--first h3,
-  .about__us--second h3 {
+  .about__us--second p {
     font-size: 20px;
   }
 
@@ -718,7 +718,7 @@ footer {
     padding: 20px 0px;
   }
 
-  .contact__form form {
+   form {
     padding: 0px 0px;
     margin: 0;
     display: flex;
@@ -738,7 +738,7 @@ footer {
     margin: 0 10px;
   }
 
-  .contact__form--card input {
+  input {
     outline: none;
     padding: 8px;
     border-radius: 20px;
@@ -765,7 +765,7 @@ footer {
     margin: 20px 0px;
   }
 
-  .contact__button button {
+ button {
     border-radius: 40px;
     height: 40px;
     width: 80%;

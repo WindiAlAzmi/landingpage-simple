@@ -1,90 +1,83 @@
-document.addEventListener("DOMContentLoaded", () => {//this code runs after html runs
+// Tambahkan kode JavaScript kalian di file ini
 
-  //get many data
-  const handleGetFormData = () => {
-    let getIdName = document.getElementById("name");
-    let getIdCity = document.getElementById("city");
-    let getIdEmail = document.getElementById("email");
-    let getIdZipCode = document.getElementById("zip-code");
-    let getIdStatus = document.getElementById("status");
-
-    const data = {
-      name: getIdName.value,
-      city: getIdCity.value,
-      email: getIdEmail.value,
-      zipcode: getIdZipCode.value,
-      status: getIdStatus.checked,
+const handleGetFormData = () => {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var city = document.getElementById("city").value;
+    var zipCode = document.getElementById("zip-code").value;
+    var status = document.getElementById("status").checked;
+  
+    let formData = {
+      name: name,
+      email: email,
+      city: city,
+      zipCode: zipCode,
+      status: status,
     };
-
-    return data;
+  
+    return formData;
   };
-
+  
   //check checkbox
-  const checkboxIsChecked = (dataStatus) => {
-    if (dataStatus) {
+  const checkboxIsChecked = () => {
+    var status = document.getElementById("status").checked;
+    if (status) {
       return true;
     } else {
       return false;
     }
   };
-
+  
   //check zipcode
   const isNumber = (dataZipcode) => {
-    if (!isNaN(dataZipcode)) {
+    if (!isNaN(dataZipcode) && dataZipcode !== "") {
       return true;
     } else {
       return false;
     }
   };
-
+  
   const validateFormData = (data) => {
-    let { name, city, email, zipcode, status } = data;    
-    const checkStatus =  checkboxIsChecked(status);
-    const checkZipcode =  isNumber(zipcode);
-
-
+    let { name, city, email, zipCode, status } = data;
+    const checkStatus = checkboxIsChecked(status);
+    const checkZipcode = isNumber(zipCode);
+  
     if (
       name !== null &&
+      name !== "" &&
       city !== null &&
+      city !== "" &&
       email !== null &&
-      checkZipcode == true && checkStatus == true
+      email !== "" &&
+      checkZipcode == true &&
+      checkStatus == true
     ) {
       return true;
     } else {
       return false;
     }
   };
-
+  
   const submit = () => {
     const dataForm = handleGetFormData();
     let getIdWarning = document.getElementById("warning");
-    let getIdSuccess = document.getElementById("success");
-    const isValidate = validateFormData(dataForm);
-
-    switch (isValidate) {
-      case true:
-        getIdWarning.style.display = "none";
-        getIdSuccess.style.display = "block";
-        getIdSuccess.style.backgroundColor = "green";
-        getIdSuccess.style.borderRadius="20px";
-        setTimeout(() => {
-            getIdSuccess.style.display = "none";
-          }, 3000);
-
-        break;
-      case false:
-        getIdWarning.style.display = "block";
-        setTimeout(() => {
-          getIdWarning.style.display = "none";
-        }, 3000);
-        break;
+  
+    if (validateFormData(dataForm)) {
+      getIdWarning.innerHTML = "";
+    } else {
+      getIdWarning.innerHTML = "Periksa form anda sekali lagi";
     }
   };
-
+  
   let getIdForm = document.getElementById("submit-form");
   getIdForm.addEventListener("click", (e) => {
     e.preventDefault();
-    submit();
-  })
+    let getIdWarning = document.getElementById("warning");
+    const dataForm = handleGetFormData();
+    if (checkboxIsChecked(dataForm.status)) {
+      submit();
+    } else {
+      getIdWarning.innerHTML = "Periksa form anda sekali lagi";
+    }
+  });
   
-});
